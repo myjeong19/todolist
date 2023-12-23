@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../supabaseClient';
+import Swal from 'sweetalert2';
 import classes from './css/Form.module.css';
 
 export const Form = () => {
@@ -9,8 +10,6 @@ export const Form = () => {
   const handleUserDate = event => setUserDate(event.target.value);
 
   const handleSubmit = async event => {
-    event.preventDefault();
-
     if (userValue.length > 0 && userDate) {
       const { data, error } = await supabase
         .from('todos')
@@ -22,12 +21,11 @@ export const Form = () => {
           },
         ])
         .select();
+      setTimeout(() => location.reload(), 1000);
     }
     setUserValue('');
     setUserDate('');
   };
-
-  useEffect(() => {}, []);
 
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
