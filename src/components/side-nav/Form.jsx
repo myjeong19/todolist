@@ -21,7 +21,6 @@ export const Form = () => {
           },
         ])
         .select();
-      setTimeout(() => location.reload(), 1000);
     }
     setUserValue('');
     setUserDate('');
