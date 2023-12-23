@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header button {
+  width: 5rem;
+  height: 2.5rem;
+  border: none;
+  color: #fff;
+  background-color: #111;
+  transition: 1.5s all;
+}
+
+.header button:hover {
+  background-color: #cacaca;
+  color: #111;
+}

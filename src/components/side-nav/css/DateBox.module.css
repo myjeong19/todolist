@@ -1,0 +1,16 @@
+.dateBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  grid-area: 2 / 4 / 3 / 5;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #f0f0f0, #cacaca);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.38);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.38);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.38);
+}
+
+.dateBox strong {
+  font-size: 5rem;
+}
