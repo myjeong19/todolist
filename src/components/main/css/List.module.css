@@ -3,4 +3,5 @@
   flex-direction: column;
   width: 100%;
   overflow: scroll;
+  height: 55vh;
 }

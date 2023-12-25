@@ -51,7 +51,10 @@ export const Tasks = ({ tasks }) => {
 
     return (
       <li className={classes.card} key={todo.id}>
-        <h3>{todo.title}</h3>
+        <div>
+          <span>{todo.date}</span>
+          <h3>{todo.title}</h3>
+        </div>
 
         <div>
           <button onClick={updateTaskStatus}>{todo.status}</button>

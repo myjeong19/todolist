@@ -9,21 +9,38 @@ export const Form = () => {
   const handleUserValue = event => setUserValue(event.target.value);
   const handleUserDate = event => setUserDate(event.target.value);
 
+  useEffect(() => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    setUserDate(`${year}-${month}-${day}`);
+  }, []);
+
+  console.log(userDate);
+
   const handleSubmit = async event => {
-    if (userValue.length > 0 && userDate) {
-      const { data, error } = await supabase
-        .from('todos')
-        .insert([
-          {
-            title: event.target.title.value,
-            status: 'Todo',
-            date: event.target.date.value,
-          },
-        ])
-        .select();
+    setUserValue(event.target.title.value);
+    setUserDate(event.target.date.value);
+
+    if (userValue === '') {
+      alert('할 일이 비어있습니다.');
     }
-    setUserValue('');
-    setUserDate('');
+
+    if (userDate === '') {
+      alert('날씨 값이 비어있습니다.');
+    }
+
+    await supabase
+      .from('todos')
+      .insert([
+        {
+          title: userValue,
+          status: 'Todo',
+          date: userDate,
+        },
+      ])
+      .select();
   };
 
   return (
