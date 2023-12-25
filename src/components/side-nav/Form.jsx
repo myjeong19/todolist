@@ -17,30 +17,33 @@ export const Form = () => {
     setUserDate(`${year}-${month}-${day}`);
   }, []);
 
-  console.log(userDate);
-
   const handleSubmit = async event => {
-    setUserValue(event.target.title.value);
-    setUserDate(event.target.date.value);
-
     if (userValue === '') {
-      alert('할 일이 비어있습니다.');
+      event.preventDefault();
+      Swal.fire({
+        icon: 'error',
+        title: '입력 값이 비어있습니다.',
+        text: '할 일을 입력해주세요.',
+      });
+    } else if (userDate === '') {
+      event.preventDefault();
+      Swal.fire({
+        icon: 'error',
+        title: '입력 값이 비어있습니다.',
+        text: '날짜를 입력해주세요.',
+      });
+    } else {
+      await supabase
+        .from('todos')
+        .insert([
+          {
+            title: userValue,
+            status: 'Todo',
+            date: userDate,
+          },
+        ])
+        .select();
     }
-
-    if (userDate === '') {
-      alert('날씨 값이 비어있습니다.');
-    }
-
-    await supabase
-      .from('todos')
-      .insert([
-        {
-          title: userValue,
-          status: 'Todo',
-          date: userDate,
-        },
-      ])
-      .select();
   };
 
   return (

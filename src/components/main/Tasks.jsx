@@ -13,8 +13,6 @@ const handleSortList = (prev, next) => {
 };
 
 export const Tasks = ({ tasks }) => {
-  const [status, setStatus] = useState(false);
-
   const elementTasks = tasks.sort(handleSortList).map(todo => {
     const handleDeleteTasks = async () => {
       Swal.fire({
