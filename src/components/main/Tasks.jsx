@@ -4,10 +4,18 @@ import Swal from 'sweetalert2';
 import { MdDelete } from 'react-icons/md';
 import classes from './css/Tasks.module.css';
 
+const handleSortList = (prev, next) => {
+  const prevDate = prev.date;
+  const nextDate = next.date;
+  if (prevDate < nextDate) return 1;
+  if (prevDate > nextDate) return -1;
+  return 0;
+};
+
 export const Tasks = ({ tasks }) => {
   const [status, setStatus] = useState(false);
 
-  const elementTasks = tasks.map(todo => {
+  const elementTasks = tasks.sort(handleSortList).map(todo => {
     const handleDeleteTasks = async () => {
       Swal.fire({
         title: '정말 삭제하시겠습니까?',
