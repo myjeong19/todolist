@@ -13,11 +13,7 @@ const handleSortList = (prev, next) => {
 };
 
 export const Tasks = ({ tasks }) => {
-  const [task, setTask] = useState([]);
-  useEffect(() => {
-    setTask([...task]);
-  }, []);
-  const elementTasks = task.sort(handleSortList).map(todo => {
+  const elementTasks = tasks.sort(handleSortList).map(todo => {
     const handleDeleteTasks = async () => {
       Swal.fire({
         title: '정말 삭제하시겠습니까?',
