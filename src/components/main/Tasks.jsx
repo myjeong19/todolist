@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '../../supabaseClient';
 import Swal from 'sweetalert2';
 import { MdDelete } from 'react-icons/md';
@@ -13,7 +13,11 @@ const handleSortList = (prev, next) => {
 };
 
 export const Tasks = ({ tasks }) => {
-  const elementTasks = tasks.sort(handleSortList).map(todo => {
+  const [task, setTask] = useState([]);
+  useEffect(() => {
+    setTask([...task]);
+  }, []);
+  const elementTasks = task.sort(handleSortList).map(todo => {
     const handleDeleteTasks = async () => {
       Swal.fire({
         title: '정말 삭제하시겠습니까?',
