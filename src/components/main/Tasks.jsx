@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { supabase } from '../../supabaseClient';
 import Swal from 'sweetalert2';
 import { MdDelete } from 'react-icons/md';

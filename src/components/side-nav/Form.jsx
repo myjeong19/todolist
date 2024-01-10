@@ -54,6 +54,7 @@ export const Form = () => {
         onChange={handleUserValue}
         value={userValue}
         placeholder='할 일을 입력해주세요.'
+        autoFocus
       />
       <input
         type='date'

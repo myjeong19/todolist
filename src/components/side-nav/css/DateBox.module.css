@@ -14,3 +14,9 @@
 .dateBox strong {
   font-size: 5rem;
 }
+
+@media (max-width: 768px) {
+  .dateBox {
+    display: none;
+  }
+}
