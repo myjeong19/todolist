@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../../supabaseClient';
+import dayjs from 'dayjs';
 import Swal from 'sweetalert2';
 import classes from './css/Form.module.css';
+
+const now = dayjs().format('YYYY-MM-DD');
 
 export const Form = () => {
   const [userValue, setUserValue] = useState('');
@@ -10,11 +13,7 @@ export const Form = () => {
   const handleUserDate = event => setUserDate(event.target.value);
 
   useEffect(() => {
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    setUserDate(`${year}-${month}-${day}`);
+    setUserDate(now);
   }, []);
 
   const handleSubmit = async event => {

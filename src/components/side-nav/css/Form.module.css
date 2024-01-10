@@ -29,11 +29,13 @@
   height: 2.5rem;
   border: none;
   transition: 1s all;
+  color: #fff;
+  background-color: #111;
+  cursor: pointer;
 }
 
 .form button:hover {
-  color: #fff;
-  background-color: #111;
+  background-color: #11111196;
 }
 
 @media (max-width: 768px) {

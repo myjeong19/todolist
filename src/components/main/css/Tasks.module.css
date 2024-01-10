@@ -15,6 +15,7 @@
   height: 2.5rem;
   border: none;
   transition: 1s all;
+  cursor: pointer;
 }
 
 .card button:hover {

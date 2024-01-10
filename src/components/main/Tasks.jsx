@@ -21,7 +21,6 @@ export const Tasks = ({ tasks }) => {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        cancelmButtonText: '취소',
         confirmButtonText: '네 삭제하겠습니다!',
       }).then(async result => {
         if (result.isConfirmed) {
